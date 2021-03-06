@@ -8,7 +8,7 @@
 2. Java虚拟机能实现平台无关性；
 3. 垃圾回收机制；
 
-#### JVM、JDK和JRE
+#### JDK和JRE、JVM
 
 1.JVM是运行字节码的虚拟机，对不同系统有特定实现，目的是针对相同字节码，给出相同的结果。
 
@@ -24,9 +24,7 @@
 
 同：都是面向对象；
 
-异：Java不支持指针访问内存，更安全；Java 的类是单继承的，C++ 支持多重继承，Java接口可多继承；Java有垃圾回收机制GC；
-
-
+异：Java不支持指针访问内存，更安全；Java有垃圾回收机制GC；Java 的类是单继承的，C++ 支持多重继承，Java接口可多继承；
 
 ### Java语法
 
@@ -229,7 +227,7 @@ public native int hashCode();
 
 #### 三大特性
 
-封装性
+**封装性**
 
 封装是指把一个对象的状态信息（也就是属性）隐藏在对象内部，不允许外部对象直接访问对象的内部信息。但是可以提供一些可以被外界访问的方法来操作属性。
 
@@ -239,7 +237,7 @@ public native int hashCode();
 
 
 
-继承性
+**继承性**
 
 继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。
 
@@ -257,7 +255,7 @@ public native int hashCode();
 
 
 
-多态性
+**多态性**
 
 可以理解为一个事物的多种形态。父类的引用指向子类的对象（或子类的对象赋给父类的引用）。
 
@@ -404,10 +402,83 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 
 ### 反射
 
+
+
 ### 异常
+
+体系结构
+
+```java
+ /* java.lang.Throwable
+ * 		|-----java.lang.Error:一般不编写针对性的代码进行处理。
+ * 		|-----java.lang.Exception:可以进行异常的处理
+ * 			|------编译时异常(checked)
+ * 					|-----IOException
+ * 						|-----FileNotFoundException
+ * 					|-----ClassNotFoundException
+ * 			|------运行时异常(unchecked,RuntimeException)
+ * 					|-----NullPointerException
+ * 					|-----ArrayIndexOutOfBoundsException
+ * 					|-----ClassCastException
+ * 					|-----NumberFormatException
+ * 					|-----InputMismatchException
+ * 					|-----ArithmeticException
+ */
+```
+
+1.java异常处理的抓抛模型
+
+过程一："抛"：程序在正常执行的过程中，一旦出现异常，就会在异常代码处生成一个对应异常类的对象。
+
+并将此对象抛出。一旦抛出对象以后，其后的代码就不再执行。
+
+关于异常对象的产生：（1）系统自动生成的异常对象；（2）手动的生成一个异常对象，并抛出（throw）；
+
+过程二："抓"：可以理解为异常的处理方式：（1）try-catch-finally；（2）throws；
+
+2.异常处理方式一：try-catch-finally
+
+```java
+/* try{
+ * 		//可能出现异常的代码
+ * 
+ * }catch(异常类型1 变量名1){
+ * 		//处理异常的方式1
+ * }catch(异常类型2 变量名2){
+ * 		//处理异常的方式2
+ * }catch(异常类型3 变量名3){
+ * 		//处理异常的方式3
+ * }
+ * ....
+ * finally{
+ * 		//一定会执行的代码
+ * }
+ */
+```
+
+总结：如何看待代码中的编译时异常和运行时异常？
+
+体会1：使用try-catch-finally处理编译时异常，是得程序在编译时就不再报错，但是运行时仍可能报错。相当于我们使用try-catch-finally将一个编译时可能出现的异常，延迟到运行时出现。
+
+体会2：开发中，由于运行时异常比较常见，所以我们通常就不针对运行时异常编写try-catch-finally了。针对于编译时异常，我们说一定要考虑异常的处理。
+
+
+
+3.异常处理方式二：
+"throws + 异常类型"写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。
+一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。异常代码后续的代码，就不再执行！
+
+4. 对比两种处理方式
+
+  try-catch-finally:真正的将异常给处理掉了。
+  throws的方式只是将异常抛给了方法的调用者。并没真正将异常处理掉。  
+
+**throw 和  throws区别**：
+throw 表示抛出一个异常类的对象，生成异常对象的过程。声明在方法体内。
+throws 属于异常处理的一种方式，声明在方法的声明处。
 
 ### 参考文献
 
 《Java核心技术》
 
-https://snailclimb.gitee.io/javaguide/#/docs/java/basis/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86?id=_1-java-%e5%9f%ba%e6%9c%ac%e5%8a%9f
+[JavaGuide](https://snailclimb.gitee.io/javaguide/#/docs/java/basis/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86?id=_1-java-%e5%9f%ba%e6%9c%ac%e5%8a%9f)
