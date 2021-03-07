@@ -1,24 +1,3 @@
-Table of Contents
-=================
-
-Header: X-Github-Request-Id=EDF2:43C4:A57608:B6488C:60448406
-Header: Strict-Transport-Security=max-age=31536000; includeSubdomains; preload
-Header: X-Frame-Options=deny
-Header: X-Content-Type-Options=nosniff
-Header: Vary=Accept-Encoding, Accept, X-Requested-With
-Header: X-Ratelimit-Limit=60
-Header: X-Ratelimit-Remaining=59
-Header: X-Xss-Protection=1; mode=block
-Header: Referrer-Policy=origin-when-cross-origin, strict-origin-when-cross-origin
-Header: X-Commonmarker-Version=0.21.0
-Header: Access-Control-Expose-Headers=ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
-Header: X-Ratelimit-Used=1
-Header: Access-Control-Allow-Origin=*
-Header: Content-Security-Policy=default-src 'none'
-Header: Server=GitHub.com
-Header: Date=Sun, 07 Mar 2021 07:43:03 GMT
-Header: Content-Type=text/html;charset=utf-8
-Header: X-Ratelimit-Reset=1615106583
 * [Java虚拟机](#java虚拟机)
   * [运行时数据区域](#运行时数据区域)
   * [内存模型](#内存模型)
