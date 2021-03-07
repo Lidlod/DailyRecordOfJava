@@ -1,16 +1,16 @@
-- [Java虚拟机](#java---)
-  * [运行时数据区域](#-------)
-  * [内存模型](#----)
-  * [抛出OutOfMemoryError（OOM）](#--outofmemoryerror-oom-)
-  * [垃圾回收](#----)
-    + [判断死亡的方法](#-------)
-  * [参考文献](#----)
+[TOC]
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
 
 ## Java虚拟机
 
-JVM/GC：垃圾回收、OOM、判断死亡方法、
+JVM/GC：垃圾回收、OOM、判
+
+
+
+断死亡方法、
 
 ### 运行时数据区域
 
