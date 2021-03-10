@@ -22,7 +22,7 @@ Java程序员：把内存控制权交给JVM，一但出现问题，排查困难�
 
 ### 运行时数据区域
 
-![image-20210306122030665](D:\GithubRepository\DailyRecordOfJava\Java虚拟机.assets\image-20210306122030665.png)
+![image-20210306122030665](D:\GithubRepository\DailyRecordOfJava\1-基础\Java虚拟机.assets\image-20210306122030665.png)
 
 **程序计数器**：字节码行号指令器，实现流程控制；多线程切换复位；
 
@@ -100,10 +100,10 @@ OOM：Out Of Memory，内存溢出；
 
 
 
-### 参考文献
-
-尚硅谷 JVM：135什么时JC，157内存溢出分析
+### 参考资料
 
 cyc2018
+
+JavaGuide
 
 《深入理解Java虚拟机》
