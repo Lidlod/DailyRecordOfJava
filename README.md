@@ -26,8 +26,7 @@
 
 [动态规划](https://github.com/Lidlod/DailyRecordOfJava/blob/main/2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.md)
 
-![ArrayList](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/ArrayList.png)
 
-![StackQueue](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/StackQueue.png)
 
-![tree](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/tree.png)
+
+

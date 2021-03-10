@@ -1,55 +1,8 @@
-## 顺序表
+package cn.ittj.algorithm.linear;
 
-![ArrayList](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/ArrayList.png)
+import java.lang.annotation.Inherited;
+import java.util.Iterator;
 
-实现
-
-```java
-public class SequenceList<T> implements Iterable<T>{
-    private T[] eles;// elements array
-    private int N;// length;
-
-    public SequenceList() {
-    }
-
-    // 创建容量位n的SequenceList对象
-    public SequenceList(int n) {
-        // 强制类型转换
-        eles = (T[])new Object[n];
-        //eles = new T[n];
-        N = 0;
-    }
-    //在线性表中添加一个元素
-    public void insert(T t){
-        eles[N++]=t;
-    }
-    //在线性表的第i个元素之前插入一个值为t的数据元素
-    public void insert(int i,T t){
-        N++;
-        for(int j=N-1;j>i;j--){
-            eles[j]=eles[j-1];
-        }
-        eles[i]=t;
-    }
-    // 删除并返回线性表中第i个数组元素
-    public T remove(int i){
-        T res = eles[i];
-        for (int j=i;j<N-1;j++){// N-1, remove
-            eles[j]=eles[j+1];
-        }
-        N--;
-        return res;
-    }
-}
-```
-
-Java中ArrayList；
-
-## 链表
-
-### 单向链表实现
-
-```java
 public class LinkList<T> implements Iterable<T>{
     private Node head;
     private int N;
@@ -70,6 +23,32 @@ public class LinkList<T> implements Iterable<T>{
             this.next = next;
         }
     }
+
+    // 空置线性表；
+    public void clear(){
+        head.next = null;
+        this.N = 0;
+    }
+
+    // 判断线性表是否为空，是返回true，否返回false；
+    public boolean isEmpty(){
+        return this.N == 0;
+    }
+
+    // 获取线性表元素个数
+    public int length(){
+        return N;
+    }
+
+    // 读取并返回线性表中第i个元素
+    public T get(int i){
+        Node nTemp = head.next;
+        for(int j=0;j<i;j++){
+            nTemp = nTemp.next;
+        }
+        return (T) nTemp.item; // 为什么需要强制类型转换??视屏58，中间值问题7:40；
+    }
+
     // 往线性表中添加一个元素；
     public void insert(T t){
         Node n = head;
@@ -80,14 +59,7 @@ public class LinkList<T> implements Iterable<T>{
         n.next = ns;
         N++;
     }
-    // 读取并返回线性表中第i个元素
-    public T get(int i){
-        Node nTemp = head.next;
-        for(int j=0;j<i;j++){
-            nTemp = nTemp.next;
-        }
-        return (T) nTemp.item; 
-    }
+
     // 往线性表中添加一个元素，并将该元素的为节点指向链表index的位置
     public void insert(T t, int index){
         Node n = head.next;
@@ -102,6 +74,7 @@ public class LinkList<T> implements Iterable<T>{
         n.next = ns;
         N++;
     }
+
     // 在线性表第i个元素之前插入一个值未t的数据元素
     public void insert(int i,T t){
         Node pre = head;
@@ -112,6 +85,7 @@ public class LinkList<T> implements Iterable<T>{
         pre.next = newNode;
         N++;
     }
+
     // 删除并返回线性表中第i个数据元素
     public T remove(int i){
         Node pre = head;
@@ -123,13 +97,49 @@ public class LinkList<T> implements Iterable<T>{
         N--;
         return (T) curr.item; // 强制类型转换？
     }
-}
-```
 
-链表反转
+    // 返回线性表中首次出现的指定数据元素的位序号，若不存在，则返回-1；
+    public int indexOf(T t){
+        Node n = head.next;
+        for (int j =0;n!=null;j++){
+            if (n.item == t){
+                return j;
+            }
+            n = n.next;
+        }
+        return -1;
+    }
 
-```java
-// 反转链表中的某个结点curr，并把反转后的curr结点返回
+    // Iterator 接口重写，为使用增强for
+    @Override
+    public Iterator<T> iterator() {// 迭代器有泛型
+        return new Literator();
+    }
+    private class Literator<T> implements Iterator {
+        private Node n;
+
+        public Literator() {
+            this.n = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return n.next != null;
+        }
+
+        @Override
+        public Object next() {
+            n= n.next;
+            return n.item;
+        }
+    }
+
+    // 对整个链表反转
+    public void reverse(){
+        reverse(head.next);
+    }
+
+    // 反转链表中的某个结点curr，并把反转后的curr结点返回
     public Node reverse(Node curr){
         // 若为最后一个结点
         if(curr.next==null){
@@ -144,12 +154,8 @@ public class LinkList<T> implements Iterable<T>{
         curr.next = null;// 把当前结点的下一个结点变为null；
         return curr;
     }
-```
 
-获取中间节点：快慢指针
-
-```java
-// 快慢指针获得中间节点
+    // 快慢指针获得中间节点
     public T getMid(){
         // 判断数组是否为空
         if(head.next == null){
@@ -165,12 +171,8 @@ public class LinkList<T> implements Iterable<T>{
         }
         return slow.item;
     }
-```
 
-判断链表是否有环
-
-```java
-// 判断链表是否有环
+    // 判断链表是否有环
     public boolean isCircle(){
         // 判断链表是否为空
         if (isEmpty()){
@@ -193,12 +195,8 @@ public class LinkList<T> implements Iterable<T>{
         }
         return flag;
     }
-```
 
-查找环的入口
-
-```java
-// 查找有环链表的入口结点
+    // 查找有环链表的入口结点
     public T getEntrance(){
         // 判断链表是否为空
         if (isEmpty()){
@@ -229,60 +227,4 @@ public class LinkList<T> implements Iterable<T>{
         return temp.item;
 
     }
-```
-
-### 双向链表
-
-```java
-public class TwoWayLinkList<T> implements Iterable<T>{
-    private Node first;
-    private Node last;
-    private int N;
-
-    private class Node<T>{
-        T item;
-        Node next;
-        Node pre;
-
-        public Node(T item, Node next, Node pre) {
-            this.item = item;
-            this.next = next;
-            this.pre = pre;
-        }
-    }
-    // 创建TwoWayLinkList对象；
-    public TwoWayLinkList() {
-        this.first=new Node(null,null,null);
-        this.last=null;// 初始化尾节点中并没有数据；
-        this.N=0;
-    }
-    /*
-    插入和删除方法和单项列表相似，注意处理节点前后指针；
-    */
-    // 读取并返回线性表中第i个元素
-    public T get(int i){
-        Node nTemp = first.next;
-        for(int j=0;j<i;j++){
-            nTemp = nTemp.next;
-        }
-        return (T) nTemp.item; 
-    }
-    
-    // 获取第一个元素
-    public T getFirst(){
-        if(isEmpty()){
-            return null;
-        }
-        return (T) first.next.item;
-    }
-    // 获取最后一个元素
-    public T getLast(){
-        if(isEmpty()){
-            return null;
-        }
-        return (T) last.item;
-    }
 }
-```
-
-java中LinkedList集合也是使用双向链表实现，并提供了增删改查等相关方法
