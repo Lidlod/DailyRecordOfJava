@@ -1,3 +1,5 @@
+<center>持续更新中...</center>
+
 # DailyRecordOfJava
 
 ### 写在前面
@@ -10,3 +12,4 @@
 [集合](https://github.com/Lidlod/DailyRecordOfJava/blob/main/%E9%9B%86%E5%90%88.md)
 
 [多线程](https://github.com/Lidlod/DailyRecordOfJava/blob/main/%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
+
