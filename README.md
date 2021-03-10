@@ -16,7 +16,7 @@
 
 ### 数据结构与算法
 
-![数据结构](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png)
+![数据结构](https://github.com/Lidlod/DailyRecordOfJava/blob/main/pics/DataStructure.png)
 
 - [顺序表与链表]()
 - 栈与队列
