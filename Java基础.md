@@ -73,7 +73,7 @@ hashCode()为native方法；
 public native int hashCode();
 ```
 
-两个对象相等时，其hashcode()也相等。重写equals()方法后，重写定义了相等，需要重写hashCode()，且equals()用道的field，hashCode()尽量也用到。
+两个对象相等时，其hashcode()也相等。重写equals()方法后，重新定义了相等，需要重写hashCode()，且equals()用道的field，hashCode()尽量也用到。
 
 #### 深拷贝、浅拷贝
 
@@ -100,8 +100,6 @@ public native int hashCode();
 装箱：将基本类型用它们对应的引用类型包装起来；
 
 拆箱：将包装类型转换为基本数据类型；
-
-#### 8种基本数据类型的包装类和常量池￥
 
 
 
@@ -131,8 +129,8 @@ public native int hashCode();
 
 #### 类与对象
 
-类：对一类事物的描述，是抽象的、概念上的定义
-对象：是实际存在的该类事物的每个个体，因而也称为实例(instance)
+类：对一类事物的描述，是抽象的、概念上的定义；
+对象：是实际存在的该类事物的每个个体，因而也称为实例(instance)。
 
 二者的关系：对象，是由类new出来的，派生出来的。对象引用指向对象实例，对象实例在堆内存中，对象引用存放在栈内存中。
 
@@ -148,15 +146,13 @@ public native int hashCode();
 
 ![image-20210305154659749](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210305154659749.png)
 
-《JVM规范》
+
 
 虚拟机栈，即为平时提到的栈结构。我们将局部变量存储在栈结构中
-堆，我们将new出来的结构（比如：数组、对象）加载在对空间中。补充：对象的属性（非static的）加载在堆空间中。
+堆，我们将new出来的结构（比如：数组、对象）加载在堆空间中。补充：对象的属性（非static的）加载在堆空间中。
 方法区：类的加载信息、常量池、静态域
 
 
-
-代码块：
 
 #### 属性
 
@@ -307,10 +303,6 @@ interface：接口。
 
 
 
-#### 接口
-
-#### 内部类
-
 
 
 ### 常用类
@@ -396,12 +388,6 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 3.对比String、StringBuffer、StringBuilder三者的执行效率
 从高到低排列：StringBuilder > StringBuffer > String;
 
-#### 枚举类型
-
-
-
-### 反射
-
 
 
 ### 异常
@@ -458,7 +444,7 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 
 总结：如何看待代码中的编译时异常和运行时异常？
 
-体会1：使用try-catch-finally处理编译时异常，是得程序在编译时就不再报错，但是运行时仍可能报错。相当于我们使用try-catch-finally将一个编译时可能出现的异常，延迟到运行时出现。
+体会1：使用try-catch-finally处理编译时异常，使得程序在编译时就不再报错，但是运行时仍可能报错。相当于我们使用try-catch-finally将一个编译时可能出现的异常，延迟到运行时出现。
 
 体会2：开发中，由于运行时异常比较常见，所以我们通常就不针对运行时异常编写try-catch-finally了。针对于编译时异常，我们说一定要考虑异常的处理。
 
