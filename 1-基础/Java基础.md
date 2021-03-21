@@ -20,7 +20,7 @@
 
 ![image-20210304184411282](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210304184411282.png)
 
-#### Java和C++异同
+#### Java和C++异同@
 
 同：都是面向对象；
 
@@ -65,7 +65,7 @@ equals两种情况：
 1. 类没覆盖重写。默认调用Object类中equals()方法，等价于使用==；
 2. 覆盖重写。一般重写判断两个对象内容相等。
 
-#### hashCode()与equals()
+#### hashCode()与equals()@
 
 hashCode()为native方法；
 
@@ -73,7 +73,7 @@ hashCode()为native方法；
 public native int hashCode();
 ```
 
-两个对象相等时，其hashcode()也相等。重写equals()方法后，重新定义了相等，需要重写hashCode()，且equals()用道的field，hashCode()尽量也用到。
+两个对象相等时，其hashcode()也相等。重写equals()方法后，重新定义了相等，需要重写hashCode()，不然默认hashCode()的两个对象一直不相等，且equals()用道的field，hashCode()尽量也用到。
 
 #### 深拷贝、浅拷贝
 
@@ -318,7 +318,7 @@ String:字符串，使用一对""引起来表示。
 2.String实现了Serializable接口：表示字符串是支持序列化的。
         实现了Comparable接口：表示String可以比较大小
 3.String内部定义了final char[] value用于存储字符串数据
-4.通过**字面量**的方式（区别于new给一个字符串赋值，此时的字符串值声明在字符串常量池中)。
+4.通过**字面量**的方式（区别于new给一个字符串赋值，此时的字符串值声明在**字符串常量池**中)。
 5.字符串常量池中是不会存储相同内容(使用String类的equals()比较，返回true)的字符串的。
 
 
@@ -392,9 +392,17 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 
 
 
-### 异常
+### 异常@
 
-体系结构
+#### 体系结构
+
+在 Java 中，所有的异常都有一个共同的祖先 `java.lang` 包中的 `Throwable` 类。
+
+包含两类：Error，无法处理，只能避免；Exception，可以处理；
+
+编译时异常：checked异常编译时不处理的话，无法通过编译；
+
+运行时异常：unchecked异常，不处理可通过编译。
 
 ```java
  /* java.lang.Throwable
@@ -413,6 +421,8 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
  * 					|-----ArithmeticException
  */
 ```
+
+#### 两种处理机制
 
 1.java异常处理的抓抛模型
 
@@ -450,8 +460,6 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 
 体会2：开发中，由于运行时异常比较常见，所以我们通常就不针对运行时异常编写try-catch-finally了。针对于编译时异常，我们说一定要考虑异常的处理。
 
-
-
 3.异常处理方式二：
 "throws + 异常类型"写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。
 一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。异常代码后续的代码，就不再执行！
@@ -464,6 +472,16 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 **throw 和  throws区别**：
 throw 表示抛出一个异常类的对象，生成异常对象的过程。声明在方法体内。
 throws 属于异常处理的一种方式，声明在方法的声明处。
+
+
+
+**final、finally、finalize三者的区别**？
+
+final：关键字。Java中代表不可变的；
+
+finally：关键字，处理异常后的清理工作；
+
+finalize：方法名。垃圾回收器讲对象清除出内存前，必要的清理工作；
 
 ### 参考文献
 
