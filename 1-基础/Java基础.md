@@ -1,3 +1,36 @@
+* [Java基础](#java基础)
+  * [基础概念与常识](#基础概念与常识)
+    * [Java语言特点](#java语言特点)
+    * [JDK和JRE、JVM](#jdk和jrejvm)
+    * [Java和C\+\+异同@](#java和c异同)
+  * [Java语法](#java语法)
+    * [字符型常量和字符串常量](#字符型常量和字符串常量)
+    * [注释](#注释)
+    * [泛型](#泛型)
+    * [==和equals()区别](#和equals区别)
+    * [hashCode()与equals()@](#hashcode与equals)
+    * [深拷贝、浅拷贝](#深拷贝浅拷贝)
+  * [基本数据类型](#基本数据类型)
+    * [基本数据类型、大小、包装类](#基本数据类型大小包装类)
+    * [自动装箱、自动拆箱](#自动装箱自动拆箱)
+  * [面向对象](#面向对象)
+    * [类与对象](#类与对象)
+    * [属性](#属性)
+    * [方法](#方法)
+    * [构造器](#构造器)
+    * [三大特性](#三大特性)
+    * [关键字、修饰符](#关键字修饰符)
+    * [内部类](#内部类)
+  * [常用类](#常用类)
+    * [String](#string)
+      * [底层存储](#底层存储)
+      * [String和其它类型相互转换](#string和其它类型相互转换)
+      * [String、StringBuffer、StringBuilder三者的对比](#stringstringbufferstringbuilder三者的对比)
+  * [异常@](#异常)
+    * [体系结构](#体系结构)
+    * [两种处理机制](#两种处理机制)
+  * [参考文献](#参考文献)
+
 ## Java基础
 
 ### 基础概念与常识
@@ -18,7 +51,7 @@
 
 3.JDK（ Java Development Kit ）：Java开发环境。包含JRE拥有的一切
 
-![image-20210304184411282](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210304184411282.png)
+![image-20210304184411282](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.assets/image-20210304184411282.png)
 
 #### Java和C++异同@
 
@@ -334,8 +367,6 @@ String:字符串，使用一对""引起来表示。
 
 5.字符串常量池中是不会存储相同内容(使用String类的equals()比较，返回true)的字符串的。
 
-
-
 2.String的不可变性
 
 2.1 说明
@@ -512,7 +543,7 @@ finalize：方法名。垃圾回收器讲对象清除出内存前，必要的清
 
 ### 参考文献
 
-《Java核心技术》
+《Java核心技术》《Java编程思想》
 
 [JavaGuide](https://snailclimb.gitee.io/javaguide/#/docs/java/basis/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86?id=_1-java-%e5%9f%ba%e6%9c%ac%e5%8a%9f)
 

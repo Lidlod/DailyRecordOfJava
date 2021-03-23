@@ -11,6 +11,7 @@
 - [Java基础](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.md)
 - [集合](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/%E9%9B%86%E5%90%88.md)
 - [多线程](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/%E5%A4%9A%E7%BA%BF%E7%A8%8B.md)
+- [Java虚拟机](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E8%99%9A%E6%8B%9F%E6%9C%BA.md)
 
 
 
