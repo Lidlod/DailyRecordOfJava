@@ -26,6 +26,12 @@
 
 异：Java不支持指针访问内存，更安全；Java有垃圾回收机制GC；Java 的类是单继承的，C++ 支持多重继承，Java接口可多继承；
 
+> 《深入理解Java虚拟机》
+>
+> C++程序员拥有每个对象的“所有权”，又担负着每个对象从生命开始到终结的维护责任；
+>
+> Java程序员有虚拟机自动管理内存，但如果出现内存泄漏或者溢出的问题，如果不了解虚拟机是怎么使用内存的，那么排查错误将是个异常艰难的工作。
+
 ### Java语法
 
 #### 字符型常量和字符串常量
@@ -103,8 +109,6 @@ public native int hashCode();
 
 
 
-
-
 ### 面向对象
 
 面向对象学习的三条主线：
@@ -125,7 +129,7 @@ public native int hashCode();
 
 区别：面向对象面向对象有封装、继承、多态性的特性，易维护、易复用、易扩展，可以设计出低耦合的系统。面向对象性能比面向过程低。
 
-![image-20210305153616243](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210305153616243.png)
+![image-20210305153616243](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.assets/image-20210305153616243.png)
 
 #### 类与对象
 
@@ -144,7 +148,7 @@ public native int hashCode();
 编译完源程序以后，生成一个或多个字节码文件。
 我们使用JVM中的类的加载器和解释器对生成的字节码文件进行解释运行。意味着，需要将字节码文件对应的类加载到内存中，涉及到内存解析。
 
-![image-20210305154659749](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210305154659749.png)
+![image-20210305154659749](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.assets/image-20210305154659749.png)
 
 
 
@@ -183,8 +187,8 @@ public native int hashCode();
 
 说明：
 
-1. 关于权限修饰符。Java规定的4种权限修饰符：private、public（默认）、缺省、protected
-2. 返回值。若有返回值，在方法声明时，制定返回值类型，方法中，“return 数据”；若没有返回值，不需要使用return，或“return;”，表示方法结束。
+1. 关于权限修饰符。Java规定的4种权限修饰符：private、public（默认）、缺省、protected；
+2. 返回值。若有返回值，在方法声明时，制定返回值类型，方法中，“return 数据”；若没有返回值，不需要使用return，或“return;”，表示方法结束；
 3. 形参列表。可定义多个。**Java 程序设计语言总是采用按值调用。也就是说，方法得到的是所有参数值的一个拷贝，也就是说，方法不能修改传递给它的任何参数变量的内容。**
 
 体现封装性，“高内聚，低耦合”。
@@ -199,19 +203,21 @@ public native int hashCode();
 
 一个方法体内调用它自身。
 
+
+
 #### 构造器
 
 作用：创建对象；初始化对象信息；
 
 使用说明：
 
-1.如果没显式的定义类的构造器的话，则系统默认提供一个空参的构造器
+1.如果没显式的定义类的构造器的话，则系统默认提供一个空参的构造器；
 
 2.定义构造器的格式：权限修饰符  类名(形参列表){}；无返回值；
 
-3.一个类中定义的多个构造器，彼此构成重载
+3.一个类中定义的多个构造器，彼此构成重载；
 
-4.一旦我们显式的定义了类的构造器之后，系统就不再提供默认的空参构造器
+4.一旦我们显式的定义了类的构造器之后，系统就不再提供默认的空参构造器；
 
 5.一个类中，至少会有一个构造器。
 
@@ -274,7 +280,7 @@ Object obj = new Date();
 
 向下转型：调用子类的属性和方法；强转前用instanceof判断；
 
-![image-20210305161907647](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210305161907647.png)
+![image-20210305161907647](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.assets/image-20210305161907647.png)
 
 
 
@@ -312,24 +318,36 @@ interface：接口。
 #### String
 
 java.lang.String类的使用
+
 1.概述
+
 String:字符串，使用一对""引起来表示。
+
 1.String声明为final的，不可被继承
+
 2.String实现了Serializable接口：表示字符串是支持序列化的。
         实现了Comparable接口：表示String可以比较大小
+
 3.String内部定义了final char[] value用于存储字符串数据
+
 4.通过**字面量**的方式（区别于new给一个字符串赋值，此时的字符串值声明在**字符串常量池**中)。
+
 5.字符串常量池中是不会存储相同内容(使用String类的equals()比较，返回true)的字符串的。
 
 
 
 2.String的不可变性
+
 2.1 说明
+
 1.当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。
+
 2.当对现的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。
+
 3.当调用String的replace()方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。
 
 3.String实例化的不同方式
+
 3.1 方式说明
 
 ```java
@@ -348,21 +366,26 @@ String s3 = new String("javaEE");//方式二：通过new + 构造器的方式
 
 栈、堆、常量池
 
-![image-20210227195714077](D:\GithubRepository\DailyRecordOfJava\Java基础.assets\image-20210227195714077.png)
+![image-20210227195714077](https://github.com/Lidlod/DailyRecordOfJava/blob/main/1-%E5%9F%BA%E7%A1%80/Java%E5%9F%BA%E7%A1%80.assets/image-20210227195714077.png)
 
 ##### String和其它类型相互转换
 
 String --> 基本数据类型、包装类：调用包装类的静态方法：parseXxx(str)
-    基本数据类型、包装类 --> String:调用String重载的valueOf(xxx)
+
+基本数据类型、包装类 --> String:调用String重载的valueOf(xxx)
 
 6.2 与字符数组之间的转换
+
 String --> char[]:调用String的toCharArray()
+
 char[] --> String:调用String的构造器
 
 ##### String、StringBuffer、StringBuilder三者的对比
 
 String:不可变的字符序列；底层使用char[]存储
+
 StringBuffer:可变的字符序列；线程安全的，效率低；底层使用char[]存储
+
 StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效率高；底层使用char[]存储
 
 
@@ -382,12 +405,13 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 ```
 
 问题1. System.out.println(sb2.length());//3
-问题2. 扩容问题:如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。
-             默认情况下，扩容为原来容量的2倍 + 2，同时将原有数组中的元素复制到新的数组中。
+
+问题2. 扩容问题:如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。默认情况下，扩容为原来容量的2倍 + 2，同时将原有数组中的元素复制到新的数组中。
 
 指导意义：开发中建议大家使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)
 
 3.对比String、StringBuffer、StringBuilder三者的执行效率
+
 从高到低排列：StringBuilder > StringBuffer > String;
 
 
@@ -464,13 +488,16 @@ StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效
 "throws + 异常类型"写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。
 一旦当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。异常代码后续的代码，就不再执行！
 
-4. 对比两种处理方式
+4.对比两种处理方式
 
-  try-catch-finally:真正的将异常给处理掉了。
-  throws的方式只是将异常抛给了方法的调用者。并没真正将异常处理掉。  
+try-catch-finally:真正的将异常给处理掉了。
+
+throws的方式只是将异常抛给了方法的调用者。并没真正将异常处理掉。  
 
 **throw 和  throws区别**：
+
 throw 表示抛出一个异常类的对象，生成异常对象的过程。声明在方法体内。
+
 throws 属于异常处理的一种方式，声明在方法的声明处。
 
 
@@ -488,3 +515,6 @@ finalize：方法名。垃圾回收器讲对象清除出内存前，必要的清
 《Java核心技术》
 
 [JavaGuide](https://snailclimb.gitee.io/javaguide/#/docs/java/basis/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86?id=_1-java-%e5%9f%ba%e6%9c%ac%e5%8a%9f)
+
+[尚硅谷_Java零基础教程](https://www.bilibili.com/video/BV1Kb411W75N?p=443)
+
